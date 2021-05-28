@@ -16,5 +16,12 @@ public class Main {
         person.pet = cat;
         person.car = audi;
 
+
+        person.setSalary(1000.0);
+        person.getSalary();
+
+        person.setSalary(0.0);
+        person.getSalary();
+
     }
 }
