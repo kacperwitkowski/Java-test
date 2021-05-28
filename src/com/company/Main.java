@@ -5,19 +5,16 @@ public class Main {
         Animal cat = new Animal("rasowy",4.0);
         cat.name = "Mruczek";
 
+        Car audi = new Car("Audi","A4");
+        audi.color = "black";
+        audi.transmission = "manual";
+
+
         Human person = new Human();
         person.firstName = "Janusz";
         person.lastName = "Kowalski";
         person.pet = cat;
+        person.car = audi;
 
-        cat.feed();
-        System.out.println(cat.name + " waży: " + cat.weight);
-        cat.takeForAWalk();
-        cat.takeForAWalk();
-        cat.takeForAWalk();
-        cat.takeForAWalk();
-        cat.takeForAWalk();
-
-        System.out.println(cat.name + " waży: " + cat.weight);
     }
 }

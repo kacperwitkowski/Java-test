@@ -6,4 +6,5 @@ public class Human{
     String firstName;
     String lastName;
     Phone mobilePhone;
+    Car car;
 }
