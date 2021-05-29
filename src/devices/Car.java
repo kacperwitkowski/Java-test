@@ -1,13 +1,15 @@
 package devices;
 import java.util.Objects;
-public class Car {
+
+public class Car extends Device{
 public final String producer;
 public final String model;
 public String color;
 public String transmission;
 public Double value;
 
-    public Car(String model,String producer,double value){
+    public Car(String model,String producer,double value,int yearOfProduction){
+        super(model,producer,yearOfProduction);
         this.model = model;
         this.producer = producer;
         this.value = value;
@@ -32,12 +34,15 @@ public Double value;
 
 
 
+    @Override
+    public void turnOn() {
+        System.out.println("Auto włącza się.");
+    }
 
 
 
-
-
+@Override
     public String toString() {
-        return model+" "+producer+" "+value +" "+color+" "+transmission+" ";
+        return value +" "+color+" "+transmission+" " + yearOfProduction;
     }
 }
