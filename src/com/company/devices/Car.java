@@ -1,7 +1,10 @@
-package devices;
+package com.company.devices;
 import java.util.Objects;
+import com.company.Human;
+import com.company.Salleable;
 
-public class Car extends Device{
+public class Car extends Device implements Salleable {
+
 public final String producer;
 public final String model;
 public String color;
@@ -45,4 +48,29 @@ public Double value;
     public String toString() {
         return value +" "+color+" "+transmission+" " + yearOfProduction;
     }
+
+    @Override
+    public void sell(Human seller, Human buyer, Double price){
+        if (seller.getCar() != this){
+            System.out.println("Nie możesz sprzedać nie swojego samochodu");
+            return;
+        }
+        if (buyer.cash < price){
+            System.out.println("Nie masz wystarczająco pieniędzy");
+            return;
+        }
+        if (seller == buyer){
+            System.out.println("Nie możesz sprzedać sam sobie auta");
+            return;
+        }
+        buyer.cash -=price;
+        seller.cash += price;
+        buyer.setCar(seller.getCar());
+        seller.setCar(null);
+        System.out.println("udało się sprzedać samochód za "+price+ "!");
+
+
+    }
+
+
 }

@@ -1,14 +1,15 @@
 package com.company;
-import devices.Car;
-import devices.Phone;
+import com.company.devices.Car;
+import com.company.devices.Phone;
 
-public class Human {
-    Animal pet;
-    String firstName;
-    String lastName;
-    Phone mobilePhone;
+public class Human implements Salleable {
+    public Animal pet;
+    public String firstName;
+    public String lastName;
+    public Phone mobilePhone;
     private Car car;
     private Double salary;
+    public Double cash;
 
     public Double getSalary() {
         System.out.println("Wartość wypłaty: " + this.salary);
@@ -41,5 +42,14 @@ public class Human {
             this.car = car;
         } else
             System.out.println("Zapisz się na studia i znajdź nową robotę albo idź po podwyżkę.");
+    }
+    
+
+public String toString() {
+        return firstName+" "+lastName+" "+ pet +" "+ salary+" "+mobilePhone+" "+car+" "+cash;
+}
+    @Override
+    public void sell(Human seller, Human buyer, Double price) {
+        System.out.println("Handel ludźmi jest niedozwolony!!!");
     }
 }
