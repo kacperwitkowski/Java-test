@@ -1,5 +1,7 @@
 package com.company.devices;
 
+import com.company.Salleable;
+
 public abstract class Device {
     public final String producer;
     public final String model;
@@ -21,4 +23,5 @@ public abstract class Device {
 //    }
 
      public abstract void turnOn();
+
 }

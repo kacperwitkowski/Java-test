@@ -2,8 +2,14 @@ package com.company;
 import com.company.creatures.Animal;
 import com.company.creatures.Pet;
 import com.company.devices.Car;
+import com.company.devices.Diesel;
+import com.company.devices.Electric;
 import com.company.devices.Phone;
 import com.company.creatures.FarmAnimal;
+import java.util.ArrayList;
+import java.util.List;
+
+import java.net.URL;
 
 public class Main {
     public static void main(String[] args) throws Exception {
@@ -12,16 +18,11 @@ public class Main {
       Animal dog = new Pet("Cziłała",6.0,"Ator");
       FarmAnimal cow = new FarmAnimal("Brunatna",250.0,"Kasia");
 
-      cow.beEaten();
-      cow.feed();
-      dog.takeForAWalk();
-      dog.feed(10.0);
-      System.out.println("Waga psa: " + dog.weight);
-      System.out.println("Waga krowy: " + cow.weight);
 
-      Car audi = new Car("A4","Audi",8000.0,2004);
-        audi.color = "black";
-        audi.transmission = "manual";
+
+      Car tesla = new Electric("Tesla","1234",80000.0,2017);
+        tesla.color = "black";
+        tesla.transmission = "manual";
 
         Human person = new Human();
         person.firstName = "Janusz";
@@ -33,13 +34,17 @@ public class Main {
         person2.lastName = "Kościuszko";
 
 
-        Car mercedes = new Car("C klasa","Mercedes",90000.0,2012);
+        Car mercedes = new Diesel("C klasa","Mercedes",90000.0,2012);
         mercedes.color = "white";
         mercedes.transmission = "automatic";
 
         person.setSalary(10000.0);
         person.getSalary();
-        person.setCar(audi);
+        person.setCar(tesla);
+
+        tesla.refuel();
+
+        person.getCar();
 
         person.cash = 500.0;
         person2.cash = 1000.0;
@@ -50,11 +55,14 @@ public class Main {
         Phone phone = new Phone("Apple","Iphone X",6.2,"IOS",2017);
         person.mobilePhone = phone;
 
+      phone.installAnApp("Facebook");
+      phone.installAnApp("Facebook", "1.0.1");
+      phone.installAnApp("Snapchat", "1.0.2", "snapchat.com");
 
-        System.out.println("Zwierze person1: " + person.pet);
-        System.out.println("Zwierze person2: " + person2.pet);
-        System.out.println("Kasa person1: " + person.cash);
-        System.out.println("Kasa person2: " + person2.cash);
+
+      String[] appList = {"Facebook","Snapchat","Instagram","Messenger"};
+      phone.installAnApp(appList);
+
 
 
 

@@ -3,7 +3,7 @@ import java.util.Objects;
 import com.company.Human;
 import com.company.Salleable;
 
-public class Car extends Device implements Salleable {
+public  abstract class Car extends Device implements Salleable {
 
 public final String producer;
 public final String model;
@@ -71,6 +71,6 @@ public Double value;
 
 
     }
-
+public abstract void refuel();
 
 }
