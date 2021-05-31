@@ -1,19 +1,23 @@
-package com.company;
+package com.company.creatures;
 
 
-public class Animal implements Salleable {
+import com.company.Human;
+import com.company.Salleable;
+
+public abstract class Animal implements Salleable, Edbile, Feedable {
     public String name;
-    final public String species;
-    Double weight; //private?
+    public String species;
+    public Double weight; //private?
 
 
 
-    public Animal(String species, Double weight){
+    public Animal(String species,Double weight,String name) {
         this.species = species;
         this.weight = weight;
+        this.name = name;
     }
 
-    void feed() {
+    public void feed() {
         try {
             if (this.weight <= 0.0) {
                 throw new Exception(this.name + " nie żyje.");
@@ -27,7 +31,25 @@ public class Animal implements Salleable {
         }
     }
 
-    void takeForAWalk() {
+
+    @Override
+    public void feed(double foodWeight) {
+        try {
+            if (this.weight <= 0.0) {
+                throw new Exception(this.name + " nie może jeść, bo nie żyje.");
+            } else {
+                this.weight += foodWeight;
+                System.out.println(this.name + " został nakarmiony. " + foodWeight);
+            }
+
+        } catch (Exception feedEx) {
+            System.err.println(feedEx);
+        }
+    }
+
+
+
+    public void takeForAWalk() {
         try {
             if (this.weight == 0.0) {
                 throw new Exception(this.name + " już nie żyje.");

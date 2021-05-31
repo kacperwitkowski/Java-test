@@ -1,4 +1,5 @@
 package com.company;
+import com.company.creatures.Animal;
 import com.company.devices.Car;
 import com.company.devices.Phone;
 
@@ -43,7 +44,7 @@ public class Human implements Salleable {
         } else
             System.out.println("Zapisz się na studia i znajdź nową robotę albo idź po podwyżkę.");
     }
-    
+
 
 public String toString() {
         return firstName+" "+lastName+" "+ pet +" "+ salary+" "+mobilePhone+" "+car+" "+cash;
