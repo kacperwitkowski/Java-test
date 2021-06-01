@@ -1,10 +1,7 @@
 package com.company;
 import com.company.creatures.Animal;
 import com.company.creatures.Pet;
-import com.company.devices.Car;
-import com.company.devices.Diesel;
-import com.company.devices.Electric;
-import com.company.devices.Phone;
+import com.company.devices.*;
 import com.company.creatures.FarmAnimal;
 import java.util.ArrayList;
 import java.util.List;
@@ -19,40 +16,44 @@ public class Main {
       FarmAnimal cow = new FarmAnimal("Brunatna",250.0,"Kasia");
 
 
+        Human person = new Human("Janusz","Kowalski");
+        person.pet = dog;
 
-      Car tesla = new Electric("Tesla","1234",80000.0,2017);
+        Human person2 = new Human("Julia","Kościuszko");
+
+        Car tesla = new Electric("Tesla","1234",2017,80000.0);
         tesla.color = "black";
         tesla.transmission = "manual";
 
-        Human person = new Human();
-        person.firstName = "Janusz";
-        person.lastName = "Kowalski";
-        person.pet = dog;
 
-        Human person2 = new Human();
-        person2.firstName = "Julia";
-        person2.lastName = "Kościuszko";
-
-
-        Car mercedes = new Diesel("C klasa","Mercedes",90000.0,2012);
+        Car mercedes = new Diesel("Mercedes","C klasa",2012,150000.0);
         mercedes.color = "white";
         mercedes.transmission = "automatic";
 
-        person.setSalary(10000.0);
+        Car audi = new LPG("Audi","A4",2003,3000.0);
+        audi.transmission = "manual";
+        audi.color = "red";
+
+        person.setSalary(1000000.0);
         person.getSalary();
-        person.setCar(tesla);
 
         tesla.refuel();
-
-        person.getCar();
 
         person.cash = 500.0;
         person2.cash = 1000.0;
 
-        person.getCar().sell(person,person2,20000.0);
+        person.setCar(tesla,0);
+        person.setCar(mercedes,1);
+        person.setCar(audi,2);
 
 
-        Phone phone = new Phone("Apple","Iphone X",6.2,"IOS",2017);
+        System.out.println("Wartość aut to: " + person.getValue());
+        System.out.println("Sortowanie: " + person.sortCars());
+
+        tesla.sell(person,person2,1000.0);
+//        person.hasCar(tesla);
+
+        Phone phone = new Phone("Apple","Iphone X",6.2,"IOS",2017,1500.0);
         person.mobilePhone = phone;
 
       phone.installAnApp("Facebook");

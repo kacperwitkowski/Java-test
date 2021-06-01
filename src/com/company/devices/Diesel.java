@@ -4,8 +4,8 @@ package com.company.devices;
 public class Diesel extends Car {
 
 
-    public Diesel(String producer, String model,Double value, Integer yearOfProduction) {
-        super(producer,model,value,yearOfProduction);
+    public Diesel(String producer, String model, Integer yearOfProduction,Double value) {
+        super(producer,model,yearOfProduction,value);
     }
 
     public void refuel() {

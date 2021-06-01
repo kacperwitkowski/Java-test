@@ -11,10 +11,11 @@ public String color;
 public String transmission;
 public Double value;
 
-    public Car(String model,String producer,double value,int yearOfProduction){
-        super(model,producer,yearOfProduction);
+    public Car(String model, String producer, int yearOfProduction, double value){
+        super(model,producer,yearOfProduction,value);
         this.model = model;
         this.producer = producer;
+        this.yearOfProduction = yearOfProduction;
         this.value = value;
     }
 
@@ -50,23 +51,20 @@ public Double value;
     }
 
     @Override
-    public void sell(Human seller, Human buyer, Double price){
-        if (seller.getCar() != this){
-            System.out.println("Nie możesz sprzedać nie swojego samochodu");
-            return;
+    public void sell(Human seller, Human buyer, Double price) throws Exception{
+        if (!seller.hasCar(this)){
+           throw new Exception("Nie znalezionio auta na sprzedaż");
         }
         if (buyer.cash < price){
-            System.out.println("Nie masz wystarczająco pieniędzy");
-            return;
+            throw new Exception("Nie masz wystarczająco pieniędzy");
         }
         if (seller == buyer){
-            System.out.println("Nie możesz sprzedać sam sobie auta");
-            return;
+            throw new Exception("Nie możesz sprzedać sam sobie auta");
         }
         buyer.cash -=price;
         seller.cash += price;
-        buyer.setCar(seller.getCar());
-        seller.setCar(null);
+        buyer.addCar(this);
+        seller.removeCar(this);
         System.out.println("udało się sprzedać samochód za "+price+ "!");
 
 

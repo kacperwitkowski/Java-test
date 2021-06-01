@@ -1,16 +1,16 @@
 package com.company.devices;
 
-import com.company.Salleable;
-
 public abstract class Device {
     public final String producer;
     public final String model;
-    public final int yearOfProduction;
+    public int yearOfProduction;
+    public Double value;
 
-    public Device(String producer, String model, int yearOfProduction) {
+    public Device(String producer, String model, int yearOfProduction, Double value) {
         this.producer = producer;
         this.model = model;
         this.yearOfProduction = yearOfProduction;
+        this.value = value;
     }
 
     public String toString() {
@@ -18,9 +18,6 @@ public abstract class Device {
     }
 
 
-//    public void turnOn() {
-//        System.out.println("Włącza się");
-//    }
 
      public abstract void turnOn();
 
