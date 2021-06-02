@@ -54,6 +54,16 @@ public class Main {
         Phone phone = new Phone("Apple","Iphone X",6.2,"IOS",2017,1500.0);
         person.mobilePhone = phone;
 
+        Application facebook = new Application("Facebook","10.1.1",0.0);
+        Application messeneger = new Application("Messeneger","6.2.5",10.0);
+        Application snapchat = new Application("Snapchat","11.3.2",34.0);
 
+        phone.installAnApp(person,facebook);
+        phone.installAnApp(person,messeneger);
+        phone.installAnApp(person,snapchat);
+
+        System.out.println(phone.isAppInstalled(facebook));
+        phone.allFreeApps();
+        System.out.println(phone.valueOfApps());
     }
 }
